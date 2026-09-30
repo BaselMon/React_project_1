@@ -1,4 +1,24 @@
 import { useEffect, useState } from "react"
+import styled from "styled-components"
+
+const Container=styled.div`
+
+display: grid;
+    grid-template-columns: repeat(3, 250px);
+
+gap:40px;
+    justify-content: center;
+align-items:center;
+height:100vh
+
+`
+
+const Card = styled.div`
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+`
 
 function Main() {
 
@@ -14,13 +34,13 @@ function Main() {
 
     }, [])
     return (
-        <>
+        <Container>
             {users.map(user =>
-                <div key={user.id}>
+                <Card key={user.id}>
                     {user.name}
-                </div>
+                </Card>
             )}
-        </>
+        </Container>
     )
 }
 
