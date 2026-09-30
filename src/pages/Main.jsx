@@ -1,13 +1,27 @@
-function Main(){
+import { useEffect, useState } from "react"
 
-    return(
-        <div>
-            Main page
-        </div>
+function Main() {
 
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(response => response.json())
+            .then(data => setUsers(data))
+
+
+
+    }, [])
+    return (
+        <>
+            {users.map(user =>
+                <div key={user.id}>
+                    {user.name}
+                </div>
+            )}
+        </>
     )
-
-
 }
 
 export default Main
