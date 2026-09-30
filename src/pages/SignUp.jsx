@@ -2,7 +2,30 @@ import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { colors, TextField } from "@mui/material"
 import { Button } from "@mui/material";
-import Login from "./Login";
+import styled from "styled-components"
+
+
+const Container = styled.div
+    `
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    flex-direction: column;
+    
+    
+    
+    `
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    border:solid 1px blue;
+    border-radius:10px;
+    padding:10px;
+    color:white;
+
+`
 
 function SignUp(){
 
@@ -14,10 +37,10 @@ function SignUp(){
 
 
     return (
-        <>
+        <Container>
 
 
-            <form onSubmit={handleSubmit(saveData)}>
+            <Form onSubmit={handleSubmit(saveData)}>
 
 
                 <TextField label="Email"
@@ -28,11 +51,11 @@ function SignUp(){
 
                 <Button type="submit" >SignUp</Button>
 
-            </form>
+            </Form>
 
-
+            <br />
             <Link to="/Login">Go To Login </Link>
-        </>
+        </Container>
 
     )
 
